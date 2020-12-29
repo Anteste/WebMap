@@ -85,3 +85,17 @@ while ans:
                   print
                   os.system("python3 webmap.py")
                   ans = None
+    elif ans=="3":
+      os.system('cls' if os.name == 'nt' else 'clear')
+      print
+      print('====================================')
+      print('#            Nikto Scan          #')
+      print('====================================')
+      print
+      target=input("Enter target: ")
+      print("___________________________________________________________________________")
+      print
+      os.system("nikto -host " + target)
+      print("______________________________________________________________________")
+      if ans=="":
+          os.system('cls' if os.name == 'nt' else 'clear')
