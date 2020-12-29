@@ -85,6 +85,20 @@ while ans:
                   print
                   os.system("python3 webmap.py")
                   ans = None
+    elif ans=="2":
+      os.system('cls' if os.name == 'nt' else 'clear')
+      print
+      print('====================================')
+      print('#        Dirsearch Scan            #')
+      print('====================================')
+      print
+      dirtarget=input("Enter target: ")
+      print("___________________________________________________________________________")
+      print
+      os.system("/opt/dirsearch/dirsearch.py -u " + dirtarget)
+      print("______________________________________________________________________")
+      if ans=="":
+          os.system('cls' if os.name == 'nt' else 'clear')
     elif ans=="3":
       os.system('cls' if os.name == 'nt' else 'clear')
       print
@@ -110,9 +124,9 @@ while ans:
         outputall = input("Enter the targer output : ")
         print("___________________________________________________________________________")
         print
-        os.system("nikto -host " + targetall + " -output " + outputall)
         os.system("nmap -T4 -A " + targetall + " -o " + outputall)
         os.system("/opt/dirsearch/dirsearch.py -u " + targetall + " -e * --simple-report=" + outputall)
+        os.system("nikto -host " + targetall + " -output " + outputall)
         if ans=="":
           os.system('cls' if os.name == 'nt' else 'clear')
     
