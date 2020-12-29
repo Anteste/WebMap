@@ -1,5 +1,5 @@
 # 📡 WebMap
-[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
+[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/) <br />
 A Python tool used to automate the execution and generate reports during a Web Penetration Testing for the following tools : Nmap , Nikto and Dirsearch. 
 * Perform A Network Scan using Nmap
 * Perform A Vulnerabity Scan Using Nikto
