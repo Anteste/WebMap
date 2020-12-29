@@ -24,7 +24,7 @@ while ans:
       while ans:
           print
           print('====================================')
-          print('#            Nmap Scan          #')
+          print('#             Nmap Scan            #')
           print('====================================')
           print("1. Scan An IP Address For Open Ports")
           print("2. Operating System Scan")
@@ -89,7 +89,7 @@ while ans:
       os.system('cls' if os.name == 'nt' else 'clear')
       print
       print('====================================')
-      print('#            Nikto Scan          #')
+      print('#            Nikto Scan            #')
       print('====================================')
       print
       target=input("Enter target: ")
@@ -99,3 +99,44 @@ while ans:
       print("______________________________________________________________________")
       if ans=="":
           os.system('cls' if os.name == 'nt' else 'clear')
+    
+    elif ans=="G":
+        os.system('cls' if os.name == 'nt' else 'clear')
+        
+        
+        ans=True
+        while ans:
+
+            print
+            print('====================================')
+            print('#         Get The Tools            #')
+            print('====================================')
+            print("1. Download Nmap")
+            print("2. Download Nikto")
+            print("M. Main Menu")
+            print('====================================')
+            print 
+            ans=input("Which program do you still need? Enter the number: ")
+
+            if ans=="1":
+                print('Downloading Nmap Now...')
+                print
+                print
+                os.system("sudo apt-get install nmap")
+
+            elif ans=="2":
+                print('Downloading Nikto Now...')
+                print
+                print
+                os.system("sudo apt-get install nikto")
+
+            elif ans=="M":
+                os.system('cls' if os.name == 'nt' else 'clear')
+                os.system('sudo python map.py')
+            else:
+                  os.system('cls' if os.name == 'nt' else 'clear')
+                  print
+                  print("Not Valid Choice Try again")
+                  print
+                  os.system("python3 webmap.py")
+                  ans = None
