@@ -7,10 +7,10 @@ ans=True
 while ans:
     print
     print('====================================')
-    print('#            WEBMAP v1            #')
+    print('#             WEBMAP               #')
     print('====================================')
     print("1. Nmap Scan")
-    print("2. Dirsearcher Scan")
+    print("2. Dirsearch Scan")
     print("3. Nikto Scan")
     print("A. All the Scans")
     print("G. Get The Tools")
@@ -92,51 +92,73 @@ while ans:
       print('#            Nikto Scan            #')
       print('====================================')
       print
-      target=input("Enter target: ")
+      niktotarget=input("Enter target: ")
       print("___________________________________________________________________________")
       print
-      os.system("nikto -host " + target)
+      os.system("nikto -host " + niktotarget)
       print("______________________________________________________________________")
       if ans=="":
           os.system('cls' if os.name == 'nt' else 'clear')
     
-    elif ans=="G":
+    elif ans=="A":
         os.system('cls' if os.name == 'nt' else 'clear')
-        
-        
-        ans=True
-        while ans:
+        print
+        print('====================================')
+        print('#         All The Scans            #')
+        print('====================================')
+        targetall = input("Enter the targer URL : ")
+        outputall = input("Enter the targer output : ")
+        print("___________________________________________________________________________")
+        print
+        os.system("nikto -host " + targetall + " -output " + outputall)
+        os.system("nmap -T4 -A " + targetall + " -o " + outputall)
+        os.system("/opt/dirsearch/dirsearch.py -u " + targetall + " -e * --simple-report=" + outputall)
+        if ans=="":
+          os.system('cls' if os.name == 'nt' else 'clear')
+    
+    elif ans=="G":
+      os.system('cls' if os.name == 'nt' else 'clear')
 
-            print
-            print('====================================')
-            print('#         Get The Tools            #')
-            print('====================================')
-            print("1. Download Nmap")
-            print("2. Download Nikto")
-            print("M. Main Menu")
-            print('====================================')
-            print 
-            ans=input("Which program do you still need? Enter the number: ")
+      ans=True
+      while ans:
 
-            if ans=="1":
-                print('Downloading Nmap Now...')
-                print
-                print
-                os.system("sudo apt-get install nmap")
+          print
+          print('====================================')
+          print('#         Get The Tools            #')
+          print('====================================')
+          print("1. Download Nmap")
+          print("2. Download Dirsearch")
+          print("3. Download Nikto")
+          print("M. Main Menu")
+          print('====================================')
+          print 
+          ans=input("Which program do you still need? Enter the number: ")
 
-            elif ans=="2":
-                print('Downloading Nikto Now...')
-                print
-                print
-                os.system("sudo apt-get install nikto")
+          if ans=="1":
+              print('Downloading Nmap Now...')
+              print
+              print
+              os.system("sudo apt-get install nmap")
 
-            elif ans=="M":
+          elif ans=="2":
+              print('Downloading Dirsearch Now...')
+              print
+              print
+              os.system("sudo cd /opt && sudo git clone https://github.com/maurosoria/dirsearch.git")
+
+          elif ans=="3":
+              print('Downloading Nikto Now...')
+              print
+              print
+              os.system("sudo apt-get install nikto")
+
+          elif ans=="M":
+              os.system('cls' if os.name == 'nt' else 'clear')
+              os.system('python3 webmap.py')
+          else:
                 os.system('cls' if os.name == 'nt' else 'clear')
-                os.system('sudo python map.py')
-            else:
-                  os.system('cls' if os.name == 'nt' else 'clear')
-                  print
-                  print("Not Valid Choice Try again")
-                  print
-                  os.system("python3 webmap.py")
-                  ans = None
+                print
+                print("Not Valid Choice Try again")
+                print
+                os.system("python3 webmap.py")
+                ans = None
