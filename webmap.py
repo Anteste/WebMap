@@ -125,8 +125,8 @@ while ans:
         print('====================================')
         print('#         All The Scans            #')
         print('====================================')
-        targetall = input("Enter the targer URL : ")
-        outputall = input("Enter the targer output : ")
+        targetall = input("Enter the target URL : ")
+        outputall = input("Enter the output folder : ")
         ipall = socket.gethostbyname(targetall)
         print("___________________________________________________________________________")
         print
