@@ -11,8 +11,10 @@ A Python tool used to automate the execution of the following tools : Nmap , Nik
 ## 🛠 Installation
 ### Linux & Unix
 ```
-git clone https://github.com/Anteste/WebMap.git
+sudo apt-get install gnome-terminal
+sudo git clone https://github.com/Anteste/WebMap.git
 cd WebMap
+sudo chmod +x webmap.py
 python3 WebMap.py
 ```
 

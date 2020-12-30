@@ -2,6 +2,7 @@
 
 import os
 import sys
+import socket
 
 ans=True
 while ans:
@@ -41,8 +42,9 @@ while ans:
                 print("______________________________________________________________________")
                 print
                 portscan=input("Enter the IP you want to scan the ports of: ")
+                portipscan = socket.gethostbyname(portscan)
                 print("______________________________________________________________________")
-                os.system("sudo nmap " + portscan)
+                os.system("nmap " + portipscan)
                 print("______________________________________________________________________")
           elif ans=="2":
                 os.system('cls' if os.name == 'nt' else 'clear')
@@ -50,8 +52,9 @@ while ans:
                 print("______________________________________________________________________")
                 print
                 osscan=input("Enter the IP you want to find the operating system of: ")
+                osipscan = socket.gethostbyname(osscan)
                 print("______________________________________________________________________")
-                os.system("sudo nmap -O " + osscan)
+                os.system("nmap -O " + osipscan)
                 print("______________________________________________________________________") 
                   
           elif ans=="3":
@@ -60,19 +63,21 @@ while ans:
                   print("______________________________________________________________________")
                   print
                   ascan=input("Enter the IP you want to scan: ")
+                  aipscan = socket.gethostbyname(ascan)
                   print
                   print("______________________________________________________________________")
-                  os.system("sudo nmap -A " + address)
+                  os.system("nmap -A " + aipscan)
                   print("______________________________________________________________________")
           elif ans=="4":
                 os.system('cls' if os.name == 'nt' else 'clear')
                 print
                 print("______________________________________________________________________")
                 print
-                address=input("Enter your address and range (i.e. 192.168.0.1/24) now: ")
+                snscan=input("Enter your address and range (i.e. 192.168.0.1/24) now: ")
+                snipscan = socket.gethostbyname(snscan)
                 print
                 print("______________________________________________________________________")
-                os.system("sudo nmap -sn " + address)
+                os.system("nmap -sn " + snipscan)
                 print("______________________________________________________________________")
           elif ans=="M":
                   os.system('cls' if os.name == 'nt' else 'clear')
@@ -122,11 +127,12 @@ while ans:
         print('====================================')
         targetall = input("Enter the targer URL : ")
         outputall = input("Enter the targer output : ")
+        ipall = socket.gethostbyname(targetall)
         print("___________________________________________________________________________")
         print
-        os.system("nmap -T4 -A " + targetall + " -o " + outputall)
-        os.system("/opt/dirsearch/dirsearch.py -u " + targetall + " -e * --simple-report=" + outputall)
-        os.system("nikto -host " + targetall + " -output " + outputall)
+        os.system('gnome-terminal -- bash -c "nmap -A '+ipall+' -o '+outputall+'/nmap.txt && bash"')
+        os.system('gnome-terminal -- bash -c "python3 /opt/dirsearch/dirsearch.py -u '+targetall+ ' -e * --simple-report='+outputall+'/dirsearch.txt && bash"')
+        os.system('gnome-terminal -- bash -c "nikto +h '+targetall+' -output '+outputall+'/nikto.txt && bash"')
         if ans=="":
           os.system('cls' if os.name == 'nt' else 'clear')
     
@@ -158,7 +164,7 @@ while ans:
               print('Downloading Dirsearch Now...')
               print
               print
-              os.system("sudo cd /opt && sudo git clone https://github.com/maurosoria/dirsearch.git")
+              os.system("cd /opt && sudo git clone https://github.com/maurosoria/dirsearch.git")
 
           elif ans=="3":
               print('Downloading Nikto Now...')
@@ -176,3 +182,12 @@ while ans:
                 print
                 os.system("python3 webmap.py")
                 ans = None
+    elif ans=="E":
+        os.system('cls' if os.name == 'nt' else 'clear')
+        ans = None
+    else:
+    	os.system('cls' if os.name == 'nt' else 'clear')
+    	print
+    	print("Not Valid Choice Try again")
+    	print
+    	os.system("python3 webmap.py")
