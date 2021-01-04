@@ -15,7 +15,7 @@ sudo apt-get install gnome-terminal
 sudo git clone https://github.com/Anteste/WebMap.git
 cd WebMap
 sudo chmod +x webmap.py
-python3 WebMap.py
+python3 webmap.py
 ```
 
 # ✨ Other 
