@@ -8,7 +8,8 @@ A Python tool used to automate the execution of the following tools : Nmap , Nik
 * Automate Web Penetration Using WebMap
 * Tested on Linux and Unix with Python 3
 ------------------------------------
-<a href="https://ibb.co/b7LBFqC"><img src="https://i.ibb.co/M9pVfWt/Kazam-screenshot-00001.png" alt="WebMap Screenshot" border="0"><br />
+<a href="https://ibb.co/b7LBFqC"><img src="https://i.ibb.co/M9pVfWt/Kazam-screenshot-00001.png" alt="WebMap Screenshot" border="0">
+<br />
 <a href="https://ibb.co/F3X7vgC"><img src="https://i.ibb.co/XLDJBSM/Kazam-screenshot-00000.png" alt="WebMap All The Scans Screenshot" border="0"></a>
 ## 🛠 Installation
 ### Linux & Unix
