@@ -3,8 +3,19 @@
 import os
 import sys
 import socket
+import string
 
 ans=True
+
+installed = True if os.path.exists('/bin/webmap') else False
+
+def reopen():
+    if installed:
+        os.system('sudo webapp')
+    
+    else:
+        os.system('sudo python3 webmap.py')
+
 while ans:
     print
     print('====================================')
@@ -17,7 +28,7 @@ while ans:
     print("G. Get The Tools")
     print("E. Exit")
     print('====================================')
-    ans=input("What would you like to do? Enter your selection: ")
+    ans = input("What would you like to do? Enter your selection: ").upper()
     
     if ans=="1":
       os.system('cls' if os.name == 'nt' else 'clear')
@@ -46,6 +57,7 @@ while ans:
                 print("______________________________________________________________________")
                 os.system("nmap " + portipscan)
                 print("______________________________________________________________________")
+
           elif ans=="2":
                 os.system('cls' if os.name == 'nt' else 'clear')
                 print
@@ -68,6 +80,7 @@ while ans:
                   print("______________________________________________________________________")
                   os.system("nmap -A " + aipscan)
                   print("______________________________________________________________________")
+
           elif ans=="4":
                 os.system('cls' if os.name == 'nt' else 'clear')
                 print
@@ -79,17 +92,19 @@ while ans:
                 print("______________________________________________________________________")
                 os.system("nmap -sn " + snipscan)
                 print("______________________________________________________________________")
+
           elif ans=="M":
                   os.system('cls' if os.name == 'nt' else 'clear')
-                  os.system('python3 webmap.py')
+                  reopen()
                   
           else:
                   os.system('cls' if os.name == 'nt' else 'clear')
                   print
                   print("Not Valid Choice Try again")
                   print
-                  os.system("python3 webmap.py")
+                  reopen()
                   ans = None
+
     elif ans=="2":
       os.system('cls' if os.name == 'nt' else 'clear')
       print
@@ -104,6 +119,7 @@ while ans:
       print("______________________________________________________________________")
       if ans=="":
           os.system('cls' if os.name == 'nt' else 'clear')
+
     elif ans=="3":
       os.system('cls' if os.name == 'nt' else 'clear')
       print
@@ -174,14 +190,15 @@ while ans:
 
           elif ans=="M":
               os.system('cls' if os.name == 'nt' else 'clear')
-              os.system('python3 webmap.py')
+              reopen()
           else:
                 os.system('cls' if os.name == 'nt' else 'clear')
                 print
                 print("Not Valid Choice Try again")
                 print
-                os.system("python3 webmap.py")
+                reopen()
                 ans = None
+                
     elif ans=="E":
         os.system('cls' if os.name == 'nt' else 'clear')
         ans = None
@@ -190,4 +207,4 @@ while ans:
     	print
     	print("Not Valid Choice Try again")
     	print
-    	os.system("python3 webmap.py")
+    	reopen()
