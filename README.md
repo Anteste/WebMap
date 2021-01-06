@@ -14,14 +14,11 @@ A Python tool used to automate the execution of the following tools : Nmap , Nik
 ## 🛠 Installation
 ### Linux & Unix
 ```
-$ sudo apt-get install gnome-terminal
-$ sudo apt-get install nmap
-$ sudo apt-get install nikto
-$ cd /opt && sudo git clone https://github.com/maurosoria/dirsearch.git
 $ git clone https://github.com/Anteste/WebMap.git
 $ cd WebMap
-$ sudo chmod +x webmap.py
-$ python3 webmap.py
+$ chmod +x install.sh
+$ sudo ./install.sh
+$ sudo webmap
 ```
 
 # ✨ Other 
