@@ -9,7 +9,6 @@ ans = True
 
 installed = True if os.path.exists("/bin/webmap") else False
 
-
 def reopen():
     if installed:
         os.system("sudo webapp")
@@ -21,7 +20,9 @@ def reopen():
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 
-
+def create_dir(directory):
+	if not os.path.exists(directory):
+		os.makedirs(directory)
 while ans:
     print("====================================")
     print("#             WEBMAP               #")
@@ -125,29 +126,29 @@ while ans:
         print("#         All The Scans            #")
         print("====================================")
         targetall = input("Enter the target URL : ")
-        outputall = input("Enter the output folder : ")
         ipall = socket.gethostbyname(targetall)
         print("___________________________________________________________________________")
-        print
+        targetOutput = "reports/" + targetall
+        create_dir(targetOutput)
         os.system(
             'gnome-terminal -- bash -c "nmap -A '
             + ipall
             + " -o "
-            + outputall
+            + targetOutput
             + '/nmap.txt && bash"'
         )
         os.system(
             'gnome-terminal -- bash -c "python3 /opt/dirsearch/dirsearch.py -u '
             + targetall
-            + " -e * --simple-report="
-            + outputall
+            + " --simple-report="
+            + targetOutput
             + '/dirsearch.txt && bash"'
         )
         os.system(
             'gnome-terminal -- bash -c "nikto +h '
             + targetall
             + " -output "
-            + outputall
+            + targetOutput
             + '/nikto.txt && bash"'
         )
         if ans == "":
