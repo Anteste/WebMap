@@ -98,65 +98,115 @@ while ans:
 
     elif ans == "2":
         clear()
+
         print("====================================")
         print("#        Dirsearch Scan            #")
         print("====================================")
+
         dirtarget = input("Enter target: ")
+        diroutput = input("Enter the output folder - [default: reports/DirsearchScan/" + dirtarget + "/]: ")
+
+
+        if len(diroutput) == 0 :
+            diroutput = "reports/DirsearchScan/" + dirtarget
+
         print("______________________________________________________________________")
-        os.system("/opt/dirsearch/dirsearch.py -u " + dirtarget)
+
+        create_dir(diroutput)
+
+        os.system(
+            "python3 /opt/dirsearch/dirsearch.py -u "
+            + dirtarget
+            + " --simple-report="
+            + diroutput
+            + "/dirsearch.txt && bash"
+        ) 
+        
         print("______________________________________________________________________")
+        
         if ans == "":
             clear()
 
     elif ans == "3":
         clear()
+
         print("====================================")
         print("#            Nikto Scan            #")
         print("====================================")
+
         niktotarget = input("Enter target: ")
+        niktooutput = input("Enter the output folder - [default: reports/NiktoScan/" + niktotarget + "/]: ")
+
+        if len(niktooutput) == 0 :
+            niktooutput = "reports/NiktoScan/" + niktotarget
+
         print("______________________________________________________________________")
-        os.system("nikto -host " + niktotarget)
+
+        create_dir(niktooutput)
+
+        os.system(
+            "nikto +h "
+            + niktotarget
+            + " -output "
+            + niktooutput
+            + "/nikto.txt && bash"
+        )   
+
         print("______________________________________________________________________")
+
         if ans == "":
             clear()
 
     elif ans == "A":
         clear()
+
         print("====================================")
         print("#         All The Scans            #")
         print("====================================")
+
         targetall = input("Enter the target URL : ")
+        outputall = input("Enter the output folder - [default: reports/AllTheScans/" + targetall + "/]: ")
+
+        if len(outputall) == 0 :
+            outputall = "reports/AllTheScans/" + targetall
+
         ipall = socket.gethostbyname(targetall)
+
         print("___________________________________________________________________________")
-        targetOutput = "reports/" + targetall
-        create_dir(targetOutput)
+
+        create_dir(outputall)
+
         os.system(
             'gnome-terminal -- bash -c "nmap -A '
             + ipall
             + " -o "
-            + targetOutput
+            + outputall
             + '/nmap.txt && bash"'
         )
+
         os.system(
             'gnome-terminal -- bash -c "python3 /opt/dirsearch/dirsearch.py -u '
             + targetall
             + " --simple-report="
-            + targetOutput
+            + outputall
             + '/dirsearch.txt && bash"'
         )
+
         os.system(
             'gnome-terminal -- bash -c "nikto +h '
             + targetall
             + " -output "
-            + targetOutput
+            + outputall
             + '/nikto.txt && bash"'
         )
+
         if ans == "":
             clear()
 
     elif ans == "E":
         clear()
         ans = None
+
     else:
         clear()
         print("Not Valid Choice Try again")
