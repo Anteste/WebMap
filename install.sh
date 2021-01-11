@@ -18,6 +18,7 @@ fi
 
 pip3 install -r conf/requirements.txt
 sudo chmod +x webmap.py
-sudo ln -s webmap.py /usr/bin/webmap
+PWD= pwd
+sudo ln -s $PWD/webmap.py /usr/bin/webmap
 cd /opt && sudo git clone https://github.com/maurosoria/dirsearch.git
 cd -
