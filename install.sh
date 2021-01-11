@@ -17,6 +17,6 @@ elif [ "$(grep -Ei 'redhat|centos' /etc/*release)" ]; then ##To install on RPM C
 fi   
 
 sudo chmod +x webmap.py
-sudo cp webmap.py /bin/webmap
+sudo ln -s webmap.py webmap
 cd /opt && sudo git clone https://github.com/maurosoria/dirsearch.git
 cd -
