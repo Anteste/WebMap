@@ -2,16 +2,14 @@ import os
 import sys
 import socket
 import string
-import json
-import requests
 
+from art import *
+from termcolor import colored
 from modules.dirsearchscan import dirsearchScan
 from modules.niktoscan import niktoScan
 from modules.nmapscan import nmapScan
 from modules.fullscan import fullScan
 from modules.exit import exit
-from art import *
-from termcolor import colored
 
 ans = True
 version = '1.1.12'
