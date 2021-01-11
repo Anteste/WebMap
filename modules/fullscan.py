@@ -65,7 +65,7 @@ def fullScan() :
         + ipAll
         + " -o "
         + outputAll
-        + "/nmap.txt &"
+        + "/nmap.txt"
         )
 
         conf.os.system(
@@ -73,7 +73,7 @@ def fullScan() :
             + targetAll
             + " --simple-report="
             + outputAll
-            + "/dirsearch.txt &"
+            + "/dirsearch.txt"
         )
 
         conf.os.system(
@@ -81,5 +81,5 @@ def fullScan() :
             + targetAll
             + " -output "
             + outputAll
-            + "/nikto.txt &"
+            + "/nikto.txt"
         )
