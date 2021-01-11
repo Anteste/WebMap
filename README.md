@@ -15,10 +15,10 @@ A Python tool used to automate the execution of the following tools : Nmap , Nik
 ```
 $ git clone https://github.com/Anteste/WebMap.git
 $ cd WebMap
-$ chmod +x install.sh
-$ sudo ./install.sh
+$ ./install.sh
 $ sudo webmap
 ```
 
-# ✨ Other 
-* This project is free and Open Source so use it as you want 
+# ✨ Other
+* This project is free and open source, under the [MIT](./LICENSE).
+* You can contribute to this project by proposing pull requests.

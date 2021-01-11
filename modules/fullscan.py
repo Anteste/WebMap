@@ -7,7 +7,7 @@ def fullScan() :
 
     targetAll = input( conf.colored("\nEnter the target URL : ", "green", attrs=['bold']))
     outputAll = input( conf.colored(f"Enter the output folder - [default: reports/All/{targetAll}/]: ","green", attrs=['bold']))
-    
+
     conf.notValid(fullScan, targetAll)
     outputAll = conf.dirOutput(outputAll, "reports/All", targetAll)
 
@@ -19,16 +19,16 @@ def fullScan() :
 
     conf.createDir(outputAll)
 
-    gnomeInstAlled = True if conf.os.path.exists("/usr/bin/gnome-terminal") else False
-    
+    gnomeInstalled = True if conf.os.path.exists("/usr/bin/gnome-terminal") else False
+
     if len(targetAll) == 0:
         conf.clear()
 
         print("Not Valid Choice Try again")
         conf.reOpen()
-        
+
         conf.targetAll = None
-    elif gnomeInstAlled:
+    elif gnomeInstalled:
         conf.os.system(
         'gnome-terminal -- bash -c "nmap -A '
         + ipAll
@@ -40,7 +40,7 @@ def fullScan() :
         conf.clear()
 
         conf.os.system(
-            'gnome-terminal -- bash -c "python3 /opt/dirsearch/dirsearch.py -u '
+            'gnome-terminal -- bash -c "python3 ~/.opt/dirsearch/dirsearch.py -u '
             + targetAll
             + " --simple-report="
             + outputAll
@@ -69,7 +69,7 @@ def fullScan() :
         )
 
         conf.os.system(
-            "python3 /opt/dirsearch/dirsearch.py -u "
+            "python3 ~/.opt/dirsearch/dirsearch.py -u "
             + targetAll
             + " --simple-report="
             + outputAll

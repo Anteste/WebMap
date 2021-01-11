@@ -17,7 +17,7 @@ def main():
         print( conf.colored("A. All the Scans", 'yellow', attrs=['bold']))
         print( conf.colored("E. Exit\n", 'yellow', attrs=['bold']))
         print("===================================================================")
-        
+
         conf.ans = input( conf.colored("\nWhat would you like to do? Enter your selection: ", 'green')).upper()
 
         if conf.ans == "1":
@@ -36,5 +36,5 @@ def main():
 try :
     main()
 except KeyboardInterrupt:
-	print('\n \n Keyboard Interrupt. ')
-	conf.sys.exit()
+    print('\n \n Keyboard Interrupt. ')
+    conf.sys.exit()
