@@ -177,7 +177,7 @@ while ans:
         create_dir(outputall)
 
         os.system(
-            'gnome-terminal -- bash -c "nmap -A '
+            'bash -c "nmap -A '
             + ipall
             + " -o "
             + outputall
@@ -185,7 +185,7 @@ while ans:
         )
 
         os.system(
-            'gnome-terminal -- bash -c "python3 /opt/dirsearch/dirsearch.py -u '
+            'bash -c "python3 /opt/dirsearch/dirsearch.py -u '
             + targetall
             + " --simple-report="
             + outputall
@@ -193,7 +193,7 @@ while ans:
         )
 
         os.system(
-            'gnome-terminal -- bash -c "nikto +h '
+            'bash -c "nikto +h '
             + targetall
             + " -output "
             + outputall
