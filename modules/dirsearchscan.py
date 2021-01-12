@@ -7,7 +7,6 @@
 #
 
 import conf.conf as conf
-from os.path import expanduser
 
 def dirsearchScan() :
     print("===================================================================")
@@ -21,7 +20,6 @@ def dirsearchScan() :
     dirOutput = conf.dirOutput(dirOutput, "reports/Dirsearch", dirTarget)
     conf.createDir(dirOutput)
 
-    home = expanduser("~")
-    conf.os.system(f"python3 {home}/.opt/dirsearch/dirsearch.py -u {dirTarget} --simple-report={dirOutput}/dirsearch.txt")
+    conf.os.system(f"python3 {conf.home}/.local/share/dirsearch/dirsearch.py -u {dirTarget} --simple-report={dirOutput}/dirsearch.txt")
 
     print("______________________________________________________________________")

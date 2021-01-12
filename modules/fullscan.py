@@ -48,7 +48,9 @@ def fullScan() :
         conf.clear()
 
         conf.os.system(
-            'gnome-terminal -- bash -c "python3 ~/.opt/dirsearch/dirsearch.py -u '
+            'gnome-terminal -- bash -c "python3 '
+            + conf.home 
+            +'/.local/share/dirsearch/dirsearch.py -u '
             + targetAll
             + " --simple-report="
             + outputAll

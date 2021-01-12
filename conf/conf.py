@@ -22,16 +22,19 @@ from modules.fullscan import fullScan
 from modules.exit import exit
 
 ans = True
-version = '1.0.4'
+version = '1.0.5'
+home = os.path.expanduser("~")
 
 def reOpen():
     installed = True if os.path.exists("/bin/webmap") else False
 
     if installed:
         os.system("sudo webmap")
+        sys.exit()
 
     else:
         os.system("sudo python3 webmap.py")
+        sys.exit(())
 
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
