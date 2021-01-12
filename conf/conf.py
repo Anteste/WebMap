@@ -1,8 +1,17 @@
+#!/usr/bin/env python3
+#
+# Copyright (c) 2021 Iliass Alami Qammouri
+#
+# This is free software, licensed under the MIT License.
+# See /LICENSE for more information.
+#
+
 import os
 import sys
 import socket
 import string
 import requests
+#import argparse
 
 from art import *
 from termcolor import colored
@@ -28,8 +37,8 @@ def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def createDir(directory):
-    if not os.path.exists(directory):
-        os.makedirs(directory)
+	if not os.path.exists(directory):
+		os.makedirs(directory)
 
 def notValid(func, var, num=1) :
     num = True
@@ -61,19 +70,19 @@ def callFunc(func, num=1) :
         func()
 
 def verCheck():
-    verUrl = 'https://raw.githubusercontent.com/Anteste/WebMap/master/conf/version.txt'
-    try:
-        verRqst = requests.get(verUrl)
-        verSc = verRqst.status_code
-        if verSc == 200:
-            githubVer = verRqst.text
-            githubVer = githubVer.strip()
+	verUrl = 'https://raw.githubusercontent.com/Anteste/WebMap/master/conf/version.txt'
+	try:
+		verRqst = requests.get(verUrl)
+		verSc = verRqst.status_code
+		if verSc == 200:
+			githubVer = verRqst.text
+			githubVer = githubVer.strip()
 
-            if version == githubVer:
-                print(colored(f"Your WebMap version is Up-To-Date\n",'yellow', attrs=['reverse']))
-            else:
-                print(colored(f"Your WebMap version is Out-Dated, New Version Available: {format(githubVer)} \n",'red', attrs=['reverse']))
-        else:
-            print('[ Status : {} '.format(verSc) + ']' + '\n')
-    except Exception as e:
-        print('\n' + '[-] Exception : ' + str(e))
+			if version == githubVer:
+				print(colored(f"Your WebMap version is Up-To-Date\n",'yellow', attrs=['reverse']))
+			else:
+				print(colored(f"Your WebMap version is Out-Dated, New Version Available: {format(githubVer)} \n",'red', attrs=['reverse']))
+		else:
+			print('[ Status : {} '.format(verSc) + ']' + '\n')
+	except Exception as e:
+		print('\n' + '[-] Exception : ' + str(e))

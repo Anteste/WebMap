@@ -1,4 +1,11 @@
 #!/usr/bin/env bash
+#
+# Copyright (c) 2021 Iliass Alami Qammouri
+#
+# This is free software, licensed under the MIT License.
+# See /LICENSE for more information.
+#
+
 DEPENDENCIES="nmap nikto git python3-pip"
 
 # Verify the OS witch is using and install on the right one
