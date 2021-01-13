@@ -8,15 +8,17 @@ A Python tool used to automate the execution of the following tools : Nmap , Nik
 * Automate Web Penetration Using WebMap
 * Tested on Linux and Unix with Python 3
 ------------------------------------
+<br/>
 <a href="https://ibb.co/YyZYYCS"><img src="https://i.ibb.co/CM2NNcy/Webmap-Home.png" alt="Webmap-Home" border="0"></a>
 <br />
+
 ## 🛠 Installation
 ### Linux & Unix
 ```
 $ git clone https://github.com/Anteste/WebMap.git
 $ cd WebMap
 $ ./install.sh
-$ sudo webmap
+$ webmap
 ```
 
 # ✨ Other
