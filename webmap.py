@@ -10,37 +10,50 @@ import conf.conf as conf
 
 
 def main():
-    while conf.ans :
-        print("===================================================================")
-        print( conf.colored(conf.text2art ("WebMap", "larry3d"),'cyan'))
-        print( conf.colored('[>]', "red", attrs=['bold']) + conf.colored('Created by : Anteste\n', "magenta", attrs=['bold']))
-        print( conf.colored('[>]', "red", attrs=['bold']) + conf.colored(f"Version : {conf.version}\n",'magenta', attrs=['bold']))
-        conf.verCheck()
-        print("===================================================================")
-        print( conf.colored("\n1. Nmap Scan", 'yellow', attrs=['bold']))
-        print( conf.colored("2. Dirsearch Scan", 'yellow', attrs=['bold']))
-        print( conf.colored("3. Nikto Scan", 'yellow', attrs=['bold']))
-        print( conf.colored("A. All the Scans", 'yellow', attrs=['bold']))
-        print( conf.colored("E. Exit\n", 'yellow', attrs=['bold']))
-        print("===================================================================")
+    while conf.ans:
+        print(
+            "==================================================================="
+        )
+        print(conf.colored(conf.text2art("WebMap", "larry3d"), "cyan"))
+        print(
+            conf.colored("[>]", "red", attrs=["bold"]) +
+            conf.colored("Created by : Anteste\n", "magenta", attrs=["bold"]))
+        print(
+            conf.colored("[>]", "red", attrs=["bold"]) + conf.colored(
+                f"Version : {conf.version}\n", "magenta", attrs=["bold"]))
+        conf.ver_check()
+        print(
+            "==================================================================="
+        )
+        print(conf.colored("\n1. Nmap Scan", "yellow", attrs=["bold"]))
+        print(conf.colored("2. Dirsearch Scan", "yellow", attrs=["bold"]))
+        print(conf.colored("3. Nikto Scan", "yellow", attrs=["bold"]))
+        print(conf.colored("A. All the Scans", "yellow", attrs=["bold"]))
+        print(conf.colored("E. Exit\n", "yellow", attrs=["bold"]))
+        print(
+            "==================================================================="
+        )
 
-        conf.ans = input( conf.colored("\nWhat would you like to do? Enter your selection: ", 'green')).upper()
+        conf.ans = input(
+            conf.colored("\nWhat would you like to do? Enter your selection: ",
+                         "green")).upper()
 
         if conf.ans == "1":
-            conf.callFunc(conf.nmapScan)
+            conf.call_def(conf.nmap_scan)
         elif conf.ans == "2":
-            conf.callFunc(conf.dirsearchScan)
+            conf.call_def(conf.dirsearch_scan)
         elif conf.ans == "3":
-            conf.callFunc(conf.niktoScan)
+            conf.call_def(conf.nikto_scan)
         elif conf.ans == "A":
-            conf.callFunc(conf.fullScan)
+            conf.call_def(conf.full_scan)
         elif conf.ans == "E":
-            conf.callFunc(conf.exit)
+            conf.call_def(conf.exit)
         else:
-            conf.notValid(main, conf.ans, 0)
+            conf.not_valid(main, conf.ans, 0)
 
-try :
+
+try:
     main()
 except KeyboardInterrupt:
-    print('\n \n Keyboard Interrupt. ')
+    print("\n \n Keyboard Interrupt. ")
     conf.sys.exit()

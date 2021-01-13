@@ -8,18 +8,30 @@
 
 import conf.conf as conf
 
-def dirsearchScan() :
-    print("===================================================================")
-    print( conf.colored(conf.text2art ("Dirsearch Scan", "small"),'cyan'))
-    print("===================================================================")
 
-    dirTarget = input( conf.colored("\nEnter target: ", "green", attrs=['bold']))
-    dirOutput = input( conf.colored(f"Enter the output folder - [default: reports/Dirsearch/{dirTarget}/]: ","green", attrs=['bold']))
+def dirsearch_scan():
+    print(
+        "===================================================================")
+    print(conf.colored(conf.text2art("Dirsearch Scan", "small"), "cyan"))
+    print(
+        "===================================================================")
 
-    conf.notValid(dirsearchScan, dirTarget)
-    dirOutput = conf.dirOutput(dirOutput, "reports/Dirsearch", dirTarget)
-    conf.createDir(dirOutput)
+    dir_host = input(conf.colored("\nEnter target: ", "green", attrs=["bold"]))
+    dir_output = input(
+        conf.colored(
+            f"Enter the output folder - [default: reports/Dirsearch/{dir_host}/]: ",
+            "green",
+            attrs=["bold"],
+        ))
 
-    conf.os.system(f"python3 {conf.home}/.local/share/dirsearch/dirsearch.py -u {dirTarget} --simple-report={dirOutput}/dirsearch.txt")
+    conf.not_valid(dirsearch_scan, dir_host)
+    dir_output = conf.dir_output(dir_output, "reports/Dirsearch", dir_host)
+    conf.create_dir(dir_output)
 
-    print("______________________________________________________________________")
+    conf.os.system(
+        f"python3 {conf.home}/.local/share/dirsearch/dirsearch.py -u {dir_host} --simple-report={dir_output}/dirsearch.txt"
+    )
+
+    print(
+        "______________________________________________________________________"
+    )
