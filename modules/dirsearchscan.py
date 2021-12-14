@@ -29,7 +29,7 @@ def dirsearch_scan():
     conf.create_dir(dir_output)
 
     conf.os.system(
-        f"python3 {conf.home}/.local/share/dirsearch/dirsearch.py -u {dir_host} --simple-report={dir_output}/dirsearch.txt"
+        f"python3 {conf.home}/.local/share/dirsearch/dirsearch.py -u {dir_host} --output={dir_output}/dirsearch.txt"
     )
 
     print(
