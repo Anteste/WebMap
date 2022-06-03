@@ -15,7 +15,7 @@ def full_scan():
     print("===========================================================")
 
     full_host = input(
-        conf.colored("\nEnter the target URL : ", "green", attrs=["bold"]))
+        conf.colored("\nEnter the target URL (i.e. opensource.com) : ", "green", attrs=["bold"]))
     full_output = input(
         conf.colored(
             f"Enter the output folder - [default: reports/All/{full_host}/]: ",
@@ -53,7 +53,7 @@ def full_scan():
         conf.clear()
 
         conf.os.system(
-            f"gnome-terminal -- bash -c 'python3 {conf.home}/.local/share/dirsearch/dirsearch.py -u {full_host} --simple-report=\"{full_output}/dirsearch.txt\" && bash'"
+            f"gnome-terminal -- bash -c 'python3 {conf.home}/.local/share/dirsearch/dirsearch.py -u {full_host} --format plain -o \"{full_output}/dirsearch.txt\" && bash'"
         )
         conf.clear()
 
@@ -66,7 +66,7 @@ def full_scan():
         conf.os.system(f"nmap -A {full_ip} -o {full_output}/nmap.txt")
 
         conf.os.system(
-            f"python3 ~/.local/share/dirsearch/dirsearch.py -u {full_host} --simple-report='{full_output}/dirsearch.txt'"
+            f"python3 ~/.local/share/dirsearch/dirsearch.py -u {full_host} --format plain -o '{full_output}/dirsearch.txt'"
         )
 
         conf.os.system(f"nikto +h {full_host} -output {full_output}/nikto.txt")

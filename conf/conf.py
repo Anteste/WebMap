@@ -21,7 +21,7 @@ from modules.niktoscan import nikto_scan
 from modules.nmapscan import nmap_scan
 
 ans = True
-version = "1.0.5"
+version = "1.0.7"
 home = os.path.expanduser("~")
 
 
