@@ -1,0 +1,3 @@
+requests<=2.25.1
+art<=5.1
+termcolor<=1.1.0
